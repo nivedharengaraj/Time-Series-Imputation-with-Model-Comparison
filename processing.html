@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Processing...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loading-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader"></div>
+  <p class="loading-text" id="loadingMessage">Loading dataset...</p>
+
+  <script>
+    const messages = [
+      "Loading dataset...",
+      "Preparing model...",
+      "Imputing missing values...",
+      "Hyperparameter tuning...",
+      "Finalizing computations..."
+    ];
+    let index = 0;
+    
+    setInterval(() => {
+      document.getElementById("loadingMessage").innerText = messages[index];
+      index = (index + 1) % messages.length;
+    }, 4000);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const model = urlParams.get('model') || 'SAITS';
+    
+    setTimeout(() => {
+      if (model === 'BRITS') {
+        window.location.href = 'brits.html';
+      } else if (model === 'LOCF') {
+        window.location.href = 'locf.html';
+      } else {
+        window.location.href = 'saits.html';
+      }
+    }, 20000);
+  </script>
+</body>
+</html>

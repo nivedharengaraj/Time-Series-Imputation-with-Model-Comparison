@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAITS Imputation Dashboard</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .dashboard {
+      width: 80%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #34495e;
+      margin-top: 0;
+    }
+    .visuals img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .download button {
+      background-color: #2980b9;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    .download button:hover {
+      background-color: #3498db;
+    }
+    .full-width {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SAITS Imputation Results</h1>
+
+  <div class="dashboard">
+    <div class="card metrics">
+      <h2>Key Imputation Metrics</h2>
+      <p><strong>MAE:</strong> 0.1234</p>
+      <p><strong>RMSE:</strong> 0.5678</p>
+      <p><strong>R<sup>2</sup> Score:</strong> 0.8901</p>
+    </div>
+
+    <div class="card visuals">
+      <h2>Visualizations</h2>
+      <img src="SAITS_imputation_plot.jpeg" alt="Imputation Plot" />
+      <img src="SAITS_distribution_plot.jpeg" alt="Distribution Plot" />
+    </div>
+
+    <div class="card download">
+      <h2>Download Options</h2>
+      <button onclick="window.location.href='http://127.0.0.1:8001/download/'">
+        Download Imputed Dataset (CSV)
+      </button>
+    </div>
+
+    <div class="card logs">
+      <h2>Execution Logs / Status</h2>
+      <p><strong>Training Time:</strong> 120 seconds</p>
+      <p><strong>Imputation Time:</strong> 30 seconds</p>
+      <p><strong>Status:</strong> Imputation completed successfully!</p>
+    </div>
+
+    <div class="card summary full-width">
+      <h2>Summary Statistics (Before vs. After Imputation)</h2>
+      <p><strong>Mean (Before):</strong> 5.12</p>
+      <p><strong>Mean (After):</strong> 5.08</p>
+      <p><strong>Missing Values (Before):</strong> 203</p>
+      <p><strong>Missing Values (After):</strong> 0</p>
+    </div>
+  </div>
+
+</body>
+</html>
